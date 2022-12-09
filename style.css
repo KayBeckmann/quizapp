@@ -1,0 +1,41 @@
+/* Elemente */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background-color:rgb(235, 235, 235);
+}
+/* Klassen */
+.fullscreen{
+  min-height: 100vh;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.big{
+  height: 80vh;
+  min-width: 80vw;
+}
+.card-body{
+  background-image: url("./img/brainbg.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+}
+.question-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.4);
+  height: 55px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* ID's */
+/* Mobile View 1000px*/
+@media (max-width: 800px) {
+}
