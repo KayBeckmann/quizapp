@@ -20,7 +20,7 @@ body {
   height: 80vh;
   min-width: 80vw;
 }
-.card-body{
+.card-image{
   background-image: url("./img/brainbg.jpg");
   background-repeat: no-repeat;
   background-size:cover;
@@ -34,6 +34,10 @@ body {
   height: 55px;
   padding-left: 15px;
   padding-right: 15px;
+}
+.quiz-answer:hover{
+  cursor: pointer;
+  background-color:rgba(22, 22, 22, 0.2)
 }
 /* ID's */
 /* Mobile View 1000px*/
