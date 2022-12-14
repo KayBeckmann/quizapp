@@ -12,43 +12,17 @@
   <script src="./script.js"></script>
   <script src="./questions.js"></script>
 </head>
-<body>  
+<body onload="initialisation()">  
   <div class="center fullscreen">
     <div class="card big" style="width:18rem">
-      <div class="card-body center">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some text here</p>
-        
-        <div class="card mb-2">
-          <div class="card-body">
-            Antwort
-          </div>
-        </div>
-
-        <div class="card mb-2">
-          <div class="card-body">
-            Antwort
-          </div>
-        </div>
-
-        <div class="card mb-2">
-          <div class="card-body">
-            Antwort
-          </div>
-        </div>
-
-        <div class="card mb-2">
-          <div class="card-body">
-            Antwort
-          </div>
-        </div>
+      <div class="card-image card-body center" id="cardbody">
       </div>
       <div class="question-footer">
         <span>
-          <b>1</b> von <b>5</b> Fragen
+          <b id="qustionnumber"></b> von <b id="qustionstotal"></b> Fragen
         </span>
 
-          <button class="btn btn-primary">Nächste Frage</button>
+        <div id="button"></div>
         </div>
     </div>
   </div>
