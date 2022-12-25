@@ -39,18 +39,18 @@ function answer(questionID, answerID){
   let answer = questions[questionID].right_answer;
   let answerButton = document.getElementById(answerID)
 
-  if(answer == answerID){
-    answerButton.classList.add("bg-success");
-    document.getElementById("btn-next-question").classList.remove("d-none");
-  }else{
-    answerButton.classList.add("bg-danger")
+  if(answer != answerID){
+    answerButton.classList.add("bg-danger"); 
   }
+    
+  document.getElementById(answer).classList.add("bg-success");
+  document.getElementById("btn-next-question").classList.remove("d-none");
 }
 
 function renderButton(id){
   let button = document.getElementById("button");
 
-  button.innerHTML = `<button class="btn btn-primary">Click Me</button>`;
+  button.innerHTML = `<button class="btn btn-primary d-none" id="btn-next-question">Click Me</button>`;
   // button.innerHTML = buttonHTML(id);
 }
 
