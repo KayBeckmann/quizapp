@@ -39,12 +39,6 @@ body {
   cursor: pointer;
   background-color:rgba(22, 22, 22, 0.2)
 }
-.wrong{
-  background-color: red;
-}
-.right{
-  background-color: green;
-}
 .d-none{
   display: none;
 }
