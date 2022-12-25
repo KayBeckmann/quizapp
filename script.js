@@ -44,14 +44,14 @@ function answer(questionID, answerID){
   }
     
   document.getElementById(answer).classList.add("bg-success");
-  document.getElementById("btn-next-question").classList.remove("d-none");
+  document.getElementById("btn-next-question").disabled = false;
 }
 
 function renderButton(id){
   let button = document.getElementById("button");
 
-  button.innerHTML = `<button class="btn btn-primary d-none" id="btn-next-question">Click Me</button>`;
-  // button.innerHTML = buttonHTML(id);
+  // button.innerHTML = `<button class="btn btn-primary d-none" id="btn-next-question">Click Me</button>`;
+  button.innerHTML = buttonHTML(id);
 }
 
 function buttonHTML(id){
@@ -59,12 +59,11 @@ function buttonHTML(id){
 
   if(id < questions.length){
     button = /* html */ `
-      <button class="btn btn-primary d-none" id="btn-next-question" onclick="${renderQuestion(id)}">Nächste Frage</button>
+      <button class="btn btn-primary" id="btn-next-question" disabled onclick="${renderQuestion(id)}">Nächste Frage</button>
       `;
-      alert(id);
   }else{
     button = /* html */ `
-      <button class="btn btn-primary d-none" id="btn-next-question" onclick="">Auswertung</button>
+      <button class="btn btn-primary" id="btn-next-question" disabled onclick="">Auswertung</button>
       `;
   }
 
