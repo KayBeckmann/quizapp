@@ -1,6 +1,8 @@
 let points = 0;
 
 function initialisation(){
+  points = 0;
+  document.getElementById("footer").classList.remove("d-none");
   renderQuestion(0);
 }
 
@@ -76,10 +78,15 @@ function buttonHTML(id){
 
 function renderFinish(){
   let card = document.getElementById("cardbody");
-  document.getElementById("footer").innerHTML = "";
+  let button = document.getElementById("button");
+  document.getElementById("footer").classList.add("d-none");
 
   card.innerHTML = /* html */ `
   <h1>Du hast ${points} von ${questions.length} möglichen Punkten</h1>
-  <h2>Das sind ${points / questions.length * 100}%</h2>
+  <h2>Das sind ${Math.round(points / questions.length * 100)}%</h2>
+  `
+
+  button.innerHTML = /* html */`
+  <button class="btn btn-primary" onclick="initialisation()">Restart</button>
   `
 }
