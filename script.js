@@ -1,3 +1,5 @@
+let points = 0;
+
 function initialisation(){
   renderQuestion(0);
 }
@@ -40,11 +42,13 @@ function answer(questionID, answerID){
   let answerButton = document.getElementById(answerID)
 
   if(answer != answerID){
-    answerButton.classList.add("bg-danger"); 
+    answerButton.classList.add("bg-danger");
+    points--; 
   }
     
   document.getElementById(answer).classList.add("bg-success");
   document.getElementById("btn-next-question").disabled = false;
+  points++;
 }
 
 function renderButton(id){
@@ -63,9 +67,19 @@ function buttonHTML(id){
       `;
   }else{
     button = /* html */ `
-      <button class="btn btn-primary" id="btn-next-question" disabled onclick="">Auswertung</button>
+      <button class="btn btn-primary" id="btn-next-question" disabled onclick="renderFinish()">Auswertung</button>
       `;
   }
 
   return button;
+}
+
+function renderFinish(){
+  let card = document.getElementById("cardbody");
+  document.getElementById("footer").innerHTML = "";
+
+  card.innerHTML = /* html */ `
+  <h1>Du hast ${points} von ${questions.length} möglichen Punkten</h1>
+  <h2>Das sind ${points / questions.length * 100}%</h2>
+  `
 }
