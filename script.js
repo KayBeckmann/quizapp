@@ -15,7 +15,8 @@ function renderQuestion(id){
   let card = document.getElementById("cardbody");
 
   renderFooter(id + 1);
-  renderButton(id + 1)
+  renderButton(id + 1);
+  renderProgressbar(id);
 
   card.innerHTML = /* html */`
   <h5 class="card-title">${questions[id].qusestion}</h5>
@@ -51,6 +52,15 @@ function answer(questionID, answerID){
   document.getElementById(answer).classList.add("bg-success");
   document.getElementById("btn-next-question").disabled = false;
   points++;
+}
+
+function renderProgressbar(id){
+  let progressbar = document.getElementById("progressbar");
+  let percent = (id+1) / questions.length * 100;
+  let percentString = percent + `%;`;
+  
+  progressbar.innerHTML = `${Math.round(percent)}%`;
+  progressbar.style.width = `${percent}%`
 }
 
 function renderButton(id){
