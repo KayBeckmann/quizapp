@@ -59,7 +59,7 @@ function buttonHTML(id){
 
   if(id < questions.length){
     button = /* html */ `
-      <button class="btn btn-primary" id="btn-next-question" disabled onclick="renderQuestion(id)">Nächste Frage</button>
+      <button class="btn btn-primary" id="btn-next-question" disabled onclick="renderQuestion(${id})">Nächste Frage</button>
       `;
   }else{
     button = /* html */ `
