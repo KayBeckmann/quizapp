@@ -29,8 +29,8 @@ function renderAnswers(id){
 
   for(let i=0; i<questions[id].answers.length;i++){
     answers += /* html */`
-    <div class="card quiz-answer mb-2">
-      <div class="card-body quiz-answer" id="${i}" onclick="answer(${id}, ${i})">
+    <div class="card quiz-answer answerbutton mb-2">
+      <div class="card-body quiz-answer answer" id="${i}" onclick="answer(${id}, ${i})">
         ${questions[id].answers[i]}
       </div>
     </div>
@@ -48,6 +48,10 @@ function answer(questionID, answerID){
     answerButton.classList.add("bg-danger");
     points--; 
   }
+
+  for(let i=0; i<questions[questionID].answers.length; i++){
+    document.getElementById(i).classList.add("pointer");
+  }
     
   document.getElementById(answer).classList.add("bg-success");
   document.getElementById("btn-next-question").disabled = false;
@@ -56,7 +60,7 @@ function answer(questionID, answerID){
 
 function renderProgressbar(id){
   let progressbar = document.getElementById("progressbar");
-  let percent = (id+1) / questions.length * 100;
+  let percent = (id) / questions.length * 100;
   let percentString = percent + `%;`;
   
   progressbar.innerHTML = `${Math.round(percent)}%`;
@@ -66,7 +70,6 @@ function renderProgressbar(id){
 function renderButton(id){
   let button = document.getElementById("button");
 
-  // button.innerHTML = `<button class="btn btn-primary d-none" id="btn-next-question">Click Me</button>`;
   button.innerHTML = buttonHTML(id);
 }
 
@@ -90,6 +93,8 @@ function renderFinish(){
   let card = document.getElementById("cardbody");
   let button = document.getElementById("button");
   document.getElementById("footer").classList.add("d-none");
+
+  renderProgressbar(questions.length);
 
   card.innerHTML = /* html */ `
   <h1>Du hast ${points} von ${questions.length} möglichen Punkten</h1>
